@@ -97,5 +97,5 @@
 }
 
 .hero-shadow {
-  background: linear-gradient(180deg, white 0%, white 59px, rgpa(255, 255, 255, 0) 100%);
+  background: linear-gradient(180deg, white 0%, white 59px, rgba(255, 255, 255, 0) 100%);
 }
