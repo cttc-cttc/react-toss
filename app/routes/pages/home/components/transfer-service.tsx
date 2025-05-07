@@ -1,3 +1,4 @@
+import InDropUp from '~/components/animation/in-drop-up';
 import Clock from '~/components/svg/clock-icon.svg?react';
 import Shield from '~/components/svg/shield-icon.svg?react';
 import TransferServiceLogo from '~/components/svg/transfer-service-logo.svg?react';
@@ -6,7 +7,7 @@ export default function TransferService() {
   return (
     <section className="h-[2311px] bg-[#F9FAFB]">
       <div className="container h-full py-[250px]">
-        <div className="">
+        <InDropUp>
           <h1 className="mb-[30px] text-[28px] leading-[1.3] font-[700] text-[#3182f6]">
             송금
           </h1>
@@ -17,9 +18,9 @@ export default function TransferService() {
             <br />
             이런 송금 써보셨나요?
           </h2>
-        </div>
+        </InDropUp>
         <div className="mb-[150px] flex h-[384px] items-center justify-between">
-          <div className="w-[510px] pl-[38px]">
+          <InDropUp className="w-[510px] pl-[38px]">
             <p className="mb-[10px] flex text-[20px] leading-[1.4] font-[600] text-[#3182f6]">
               <TransferServiceLogo width={24} height={24} className="mr-[4px]" />
               평생 무료 송금
@@ -34,16 +35,17 @@ export default function TransferService() {
               <br />
               이제 토스와 함께 수수료 걱정 없이 송금하세요.
             </p>
-          </div>
-          <div className="w-[510px]">
+          </InDropUp>
+
+          <InDropUp className="w-[510px]">
             <img src="/images/section1_2_01_re.png" alt="section1_2_01_re" />
-          </div>
+          </InDropUp>
         </div>
         <div className="mb-[150px] flex h-[384px] items-center justify-between">
-          <div className="w-[510px]">
+          <InDropUp className="w-[510px]">
             <img src="/images/section1_2_02.png" alt="section1_2_02" />
-          </div>
-          <div className="w-[510px] pl-[38px]">
+          </InDropUp>
+          <InDropUp className="w-[510px] pl-[38px]">
             <p className="mb-[10px] flex text-[20px] leading-[1.4] font-[600] text-[#3182f6]">
               <Shield width={24} height={24} className="mr-[4px]" />
               사기계좌 조회
@@ -60,10 +62,10 @@ export default function TransferService() {
               <br />
               안전하게 송금할 수 있어요.
             </p>
-          </div>
+          </InDropUp>
         </div>
         <div className="flex h-[384px] items-center justify-between">
-          <div className="w-[510px] pl-[38px]">
+          <InDropUp className="w-[510px] pl-[38px]">
             <p className="mb-[10px] flex text-[20px] leading-[1.4] font-[600] text-[#3182f6]">
               <Clock width={24} height={24} className="mr-[4px]" />
               자동이체 예약
@@ -78,10 +80,11 @@ export default function TransferService() {
               <br />
               점검 시간이 끝나면 토스가 알아서 송금해드릴게요.
             </p>
-          </div>
-          <div className="w-[510px]">
+          </InDropUp>
+
+          <InDropUp className="w-[510px]">
             <img src="/images/section1_2_03.png" alt="section1_2_03" />
-          </div>
+          </InDropUp>
         </div>
       </div>
     </section>

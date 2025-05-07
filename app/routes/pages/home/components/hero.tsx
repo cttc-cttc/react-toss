@@ -37,13 +37,13 @@ export default function Hero() {
         animate={{ opacity: 1, y: [0, 15, 0], scale: 1 }}
         transition={{
           opacity: {
-            duration: 1,
+            duration: 2,
             repeat: Infinity,
             repeatType: 'reverse',
             ease: 'easeOut',
           },
           scale: {
-            duration: 1,
+            duration: 2,
             repeat: Infinity,
             repeatType: 'reverse',
             ease: 'easeInOut',
