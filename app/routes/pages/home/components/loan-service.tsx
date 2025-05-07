@@ -8,7 +8,7 @@ export default function LoanService() {
   const isInView = useInView(ref, { once: true, margin: `0px 0px -200px 0px` });
 
   return (
-    <section className="h-[1325.89px]">
+    <section className="h-[1326px]">
       <div className="container flex pt-[250px] pb-[250px]">
         <div className="flex-1">
           <InDropUp className="mb-[210px]">
