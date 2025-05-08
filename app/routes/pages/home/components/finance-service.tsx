@@ -1,8 +1,15 @@
-import FadeIn from '~/components/animation/fade-in';
+import { motion, useScroll, useTransform } from 'motion/react';
+import { useRef } from 'react';
+
+import ScrollOpacity from '~/components/animation/scroll-opacity';
 
 export default function FinanceService() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, layoutEffect: false });
+  const scrollY = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
   return (
-    <section className="h-[4231px]">
+    <motion.section className="h-[4231px]" ref={ref} style={{ lineHeight: scrollY }}>
       <div className="container pt-[250px] pb-[250px]">
         <div className="mb-[210px]">
           <h1 className="mb-[140px] text-[60px] leading-[1.4] font-[700] text-[#191f28]">
@@ -10,15 +17,23 @@ export default function FinanceService() {
             <br />
             일상을 더 편리하게
           </h1>
-          <FadeIn>
+          <ScrollOpacity
+            scrollYProgress={scrollYProgress}
+            startScrollY={0}
+            endScrollY={0.15}
+          >
             <img
               className="m-auto mb-[60px]"
               width={740}
               src="/images/finance-01.jpg"
               alt="finance-01"
             />
-          </FadeIn>
-          <FadeIn>
+          </ScrollOpacity>
+          <ScrollOpacity
+            scrollYProgress={scrollYProgress}
+            startScrollY={0.23}
+            endScrollY={0.35}
+          >
             <h2 className="mb-[5px] text-[40px] leading-[1.3] font-[700] text-[#191f28]">
               세금 납부, 등본 발급까지
             </h2>
@@ -32,20 +47,28 @@ export default function FinanceService() {
               <br />
               이제 토스로 편하게 신청하고 받아보세요.
             </p>
-          </FadeIn>
+          </ScrollOpacity>
         </div>
 
         <div className="mb-[220px] flex">
           <div className="flex-2">
-            <FadeIn>
+            <ScrollOpacity
+              scrollYProgress={scrollYProgress}
+              startScrollY={0.342}
+              endScrollY={0.536}
+            >
               <img
                 className="mb-[40px]"
                 width={673}
                 src="/images/finance-02-01.jpg"
                 alt="finance-02-01"
               />
-            </FadeIn>
-            <FadeIn>
+            </ScrollOpacity>
+            <ScrollOpacity
+              scrollYProgress={scrollYProgress}
+              startScrollY={0.58}
+              endScrollY={0.64}
+            >
               <h2 className="mb-[5px] text-[40px] leading-[1.3] font-[700] text-[#191f28]">
                 보험
               </h2>
@@ -54,9 +77,14 @@ export default function FinanceService() {
                 <br />
                 병원비 돌려받기를 간편하게
               </h3>
-            </FadeIn>
+            </ScrollOpacity>
           </div>
-          <FadeIn className="mt-[122px] flex-1">
+          <ScrollOpacity
+            scrollYProgress={scrollYProgress}
+            startScrollY={0.37}
+            endScrollY={0.56}
+            className="mt-[122px] flex-1"
+          >
             <img
               className="mb-[35px]"
               width={336}
@@ -70,19 +98,28 @@ export default function FinanceService() {
               전문가와의 상담을 통해 내게 딱 맞는 보험을 추천 받고, 병원비를 간편하게
               청구할 수 있어요.
             </p>
-          </FadeIn>
+          </ScrollOpacity>
         </div>
 
         <div>
-          <FadeIn>
+          <ScrollOpacity
+            scrollYProgress={scrollYProgress}
+            startScrollY={0.67}
+            endScrollY={0.84}
+          >
             <img
               className="mb-[50px]"
               width={1048}
               src="/images/finance-03.jpg"
               alt="finance-03"
             />
-          </FadeIn>
-          <FadeIn className="flex">
+          </ScrollOpacity>
+          <ScrollOpacity
+            scrollYProgress={scrollYProgress}
+            startScrollY={0.9}
+            endScrollY={0.95}
+            className="flex"
+          >
             <div className="flex-1">
               <h2 className="mb-[5px] text-[40px] leading-[1.3] font-[700] text-[#191f28]">
                 내 부동산 · 자동차
@@ -99,9 +136,9 @@ export default function FinanceService() {
                 자동차 관리도 토스에서 시작해 보세요.
               </p>
             </div>
-          </FadeIn>
+          </ScrollOpacity>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
