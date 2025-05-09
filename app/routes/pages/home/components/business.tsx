@@ -16,7 +16,7 @@ const Service = ({ title, description, buttonText }: ServiceProps) => {
         </h2>
       </div>
       <div>
-        <p className="mb-[38px] text-[20px] leading-[1.6] font-[600] text-[#b0b8c1]">
+        <p className="mb-[38px] text-[17px] leading-[1.6] font-[600] text-[#b0b8c1]">
           {description}
         </p>
       </div>
