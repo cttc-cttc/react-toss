@@ -1,3 +1,4 @@
+import InDropUp from '~/components/animation/in-drop-up';
 import { Button } from '~/components/ui/button';
 
 interface ServiceProps {
@@ -31,10 +32,10 @@ export default function Business() {
   return (
     <section className="h-[2172px] bg-[#000000] pt-[100px] pb-[250px]">
       <div className="">
-        <div>
+        <InDropUp>
           <img className="mb-[11px] w-full" src="/images/devices.png" alt="devices" />
-        </div>
-        <div>
+        </InDropUp>
+        <InDropUp>
           <h1 className="mb-[21px] text-center text-[60px] leading-[1.4] font-[700] text-[#fff]">
             사업도 토스와 함께
           </h1>
@@ -45,8 +46,8 @@ export default function Business() {
             <br />
             이제 토스와 함께 하세요.
           </p>
-        </div>
-        <div className="flex justify-center px-[48px]">
+        </InDropUp>
+        <InDropUp className="flex justify-center px-[48px]">
           <div className="">
             <Service
               title="토스결제"
@@ -107,7 +108,7 @@ export default function Business() {
               buttonText="홈페이지 바로가기"
             />
           </div>
-        </div>
+        </InDropUp>
       </div>
     </section>
   );
