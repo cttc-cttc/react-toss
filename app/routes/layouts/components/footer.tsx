@@ -38,7 +38,7 @@ const FOOTER_NAV: FooterNavProps[] = [
   {
     title: '서비스',
     data: [
-      { label: '공지사항', link: '#' },
+      { label: '공지사항', link: '/notice' },
       { label: '자주 묻는 질문', link: '#' },
       { label: '공동인증서 관리', link: '#' },
       { label: '계정 일시잠금', link: '#' },
@@ -52,7 +52,7 @@ const FOOTER_NAV: FooterNavProps[] = [
   {
     title: '회사',
     data: [
-      { label: '회사소개', link: '#' },
+      { label: '회사소개', link: '/' },
       { label: '토스페이먼츠', link: '#' },
       { label: '토스인슈어런스', link: '#' },
       { label: '토스증권', link: '#' },
