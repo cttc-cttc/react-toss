@@ -42,19 +42,19 @@ const config: runtime.GetPrismaClientConfig = {
   engineVersion: '3cff47a7f5d65c3ea74883f1d736e41d68ce91ed',
   datasourceNames: ['db'],
   activeProvider: 'postgresql',
+  postinstall: false,
   inlineDatasources: {
     db: {
       url: {
         fromEnvVar: 'POSTGRESQL_URL',
-        value:
-          'prisma+postgres://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiNjgwYTMxMDMtNTc3Mi00MzVmLTkzOTEtN2Y0NWUzMDc4MWE1IiwidGVuYW50X2lkIjoiODhjOWViMzY3MzlmYWE3YjgzZGFhNjA4ZTBjZDhlN2I1NDNmMWUzZThiNDBlN2M3NzhkMjY5ZjkwOWU5NWFjNyIsImludGVybmFsX3NlY3JldCI6ImMwYzRmYzFmLTQwMWQtNGFlMS1hZTk0LTI1OGZlM2YxNzI4NCJ9.umVXFNixpGnqxFCtl_r5XNLEEcqCe_r3I3X10SwwlIY',
+        value: null,
       },
     },
   },
   inlineSchema:
     '// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = "prisma-client"\n  output   = "../app/generated/prisma"\n}\n\ndatasource db {\n  provider = "postgresql"\n  url      = env("POSTGRESQL_URL")\n}\n\nmodel Notice {\n  id        Int      @id @default(autoincrement())\n  title     String\n  content   String\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n',
   inlineSchemaHash: '1843e568c51835c7b3a2532cc481e4a33f76d5535424d7c0452cf17f5e372427',
-  copyEngine: false,
+  copyEngine: true,
   runtimeDataModel: {
     models: {},
     enums: {},
