@@ -18,7 +18,7 @@ interface Props {
 export default function NoticePagination({ totalCount, page }: Props) {
   const [searchParams, setSearchParams] = useSearchParams();
   const totalPage = Math.ceil(totalCount / 10);
-  console.log(searchParams);
+  console.info(searchParams);
 
   return (
     <Pagination>
