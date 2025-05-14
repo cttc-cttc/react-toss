@@ -118,7 +118,7 @@ const FOOTER_TERMS: { label: string; link: string; isBold?: boolean }[][] = [
 
 export default function Footer() {
   return (
-    <footer className="h-[917px] pt-[50px] pb-[100px]">
+    <footer className="h-[917px] overflow-x-hidden pt-[50px] pb-[100px] desktop:overflow-x-auto">
       <div className="m-auto max-w-[1064px] px-[67px]">
         <div className="flex gap-8 pb-[50px]">
           {FOOTER_NAV.map((nav, index) => (
