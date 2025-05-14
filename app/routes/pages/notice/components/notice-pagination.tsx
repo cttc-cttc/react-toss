@@ -24,7 +24,12 @@ export default function NoticePagination({ totalCount, page }: Props) {
     <Pagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious onClick={() => setSearchParams({ page: `${page - 1}` })} />
+          <PaginationPrevious
+            onClick={() => {
+              if (page <= 1) return;
+              setSearchParams({ page: `${page - 1}` });
+            }}
+          />
         </PaginationItem>
         {Array.from({ length: totalPage }).map((_, index) => (
           <PaginationItem key={index}>
@@ -37,7 +42,12 @@ export default function NoticePagination({ totalCount, page }: Props) {
           <PaginationEllipsis />
         </PaginationItem> */}
         <PaginationItem>
-          <PaginationNext onClick={() => setSearchParams({ page: `${page + 1}` })} />
+          <PaginationNext
+            onClick={() => {
+              if (page >= totalPage) return;
+              setSearchParams({ page: `${page + 1}` });
+            }}
+          />
         </PaginationItem>
       </PaginationContent>
     </Pagination>

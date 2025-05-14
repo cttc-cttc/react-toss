@@ -39,10 +39,6 @@ export type PrismaClient<
 > = $Class.PrismaClient<ClientOptions, Log, ExtArgs>;
 export { Prisma };
 
-// file annotations for bundling tools to include these files
-path.join(__dirname, 'query_engine-windows.dll.node');
-path.join(process.cwd(), 'app/generated/prisma/query_engine-windows.dll.node');
-
 /**
  * Model Notice
  *
