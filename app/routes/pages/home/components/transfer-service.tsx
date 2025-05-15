@@ -5,7 +5,7 @@ import TransferServiceLogo from '~/components/svg/transfer-service-logo.svg?reac
 
 export default function TransferService() {
   return (
-    <section className="h-[2303px] bg-[#F9FAFB] desktop:h-[2311px]">
+    <section className="h-auto bg-[#F9FAFB] desktop:h-[2311px]">
       <div className="container h-full py-[100px] desktop:py-[250px]">
         <InDropUp>
           <h1 className="mb-[10px] text-[18px] leading-[1.3] font-[700] text-[#3182f6] desktop:mb-[30px] desktop:text-[28px]">
