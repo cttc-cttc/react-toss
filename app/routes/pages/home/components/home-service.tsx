@@ -35,7 +35,7 @@ export default function HomeService() {
               </h2>
             </InDropUp>
             <motion.div className="relative flex w-[650px]" style={{ right }}>
-              <div>
+              <InDropUp>
                 <img
                   className="absolute top-[45px] left-[0px] w-[183px] rounded-[32px]"
                   src="/images/home_screen_1.png"
@@ -46,8 +46,8 @@ export default function HomeService() {
                   src="/images/iPhone15_Clay_Shadow_03.png"
                   alt="iPhone15_Clay_Shadow_03"
                 />
-              </div>
-              <div>
+              </InDropUp>
+              <InDropUp>
                 <img
                   className="absolute top-[55px] left-[285px] w-[183px] rounded-[32px]"
                   src="/images/home_screen_2.png"
@@ -58,7 +58,7 @@ export default function HomeService() {
                   src="/images/iPhone15_Clay_Shadow_03.png"
                   alt="iPhone15_Clay_Shadow_03"
                 />
-              </div>
+              </InDropUp>
             </motion.div>
             <InDropUp>
               <p className="pt-[10px] text-[17px] leading-[1.5] font-[600] text-[#333D4B]">
