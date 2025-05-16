@@ -9,10 +9,14 @@ export default function FinanceService() {
   const scrollY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <motion.section className="h-[4231px]" ref={ref} style={{ lineHeight: scrollY }}>
-      <div className="container pt-[250px] pb-[250px]">
-        <div className="mb-[210px]">
-          <h1 className="mb-[140px] text-[60px] leading-[1.4] font-[700] text-[#191f28]">
+    <motion.section
+      className="h-auto desktop:h-[4231px]"
+      ref={ref}
+      style={{ lineHeight: scrollY }}
+    >
+      <div className="container py-[100px] desktop:pt-[250px] desktop:pb-[250px]">
+        <div className="mb-[100px] desktop:mb-[210px]">
+          <h1 className="mb-[64px] text-[36px] leading-[1.4] font-[700] text-[#191f28] desktop:mb-[140px] desktop:text-[60px]">
             금융을 넘어
             <br />
             일상을 더 편리하게
@@ -23,7 +27,7 @@ export default function FinanceService() {
             endScrollY={0.15}
           >
             <img
-              className="m-auto mb-[60px]"
+              className="m-auto mb-[30px] desktop:mb-[60px]"
               width={740}
               src="/images/finance-01.jpg"
               alt="finance-01"
@@ -34,13 +38,13 @@ export default function FinanceService() {
             startScrollY={0.23}
             endScrollY={0.35}
           >
-            <h2 className="mb-[5px] text-[40px] leading-[1.3] font-[700] text-[#191f28]">
+            <h2 className="mb-[3px] text-[26px] leading-[1.3] font-[700] text-[#191f28] desktop:mb-[5px] desktop:text-[40px]">
               세금 납부, 등본 발급까지
             </h2>
-            <h3 className="mb-[24px] text-[40px] leading-[1.3] font-[700] text-[#b0b8c1]">
+            <h3 className="mb-[20px] text-[26px] leading-[1.3] font-[700] text-[#b0b8c1] desktop:mb-[24px] desktop:text-[40px]">
               토스로 한 번에
             </h3>
-            <p className="text-[20px] leading-[1.5] font-[600] text-[#333d4b]">
+            <p className="text-[18px] leading-[1.5] font-[600] text-[#333d4b] desktop:text-[20px]">
               놓치기 쉬운 세금 납부 및 환급은 물론
               <br />
               발급을 받을 때마다 귀찮았던 주민등록 등초본까지.
@@ -50,16 +54,15 @@ export default function FinanceService() {
           </ScrollOpacity>
         </div>
 
-        <div className="mb-[220px] flex">
-          <div className="flex-2">
+        <div className="mb-[100px] flex flex-col items-end desktop:mb-[220px] desktop:flex-row desktop:items-start">
+          <div className="w-full desktop:flex-2">
             <ScrollOpacity
               scrollYProgress={scrollYProgress}
               startScrollY={0.342}
               endScrollY={0.536}
             >
               <img
-                className="mb-[40px]"
-                width={673}
+                className="mb-[30px] w-[240px] desktop:mb-[40px] desktop:w-[673px]"
                 src="/images/finance-02-01.jpg"
                 alt="finance-02-01"
               />
@@ -69,10 +72,10 @@ export default function FinanceService() {
               startScrollY={0.58}
               endScrollY={0.64}
             >
-              <h2 className="mb-[5px] text-[40px] leading-[1.3] font-[700] text-[#191f28]">
+              <h2 className="mb-[5px] text-[26px] leading-[1.3] font-[700] text-[#191f28] desktop:text-[40px]">
                 보험
               </h2>
-              <h3 className="text-[40px] leading-[1.3] font-[700] text-[#b0b8c1]">
+              <h3 className="text-[26px] leading-[1.3] font-[700] text-[#b0b8c1] desktop:text-[40px]">
                 조회부터 상담,
                 <br />
                 병원비 돌려받기를 간편하게
@@ -83,11 +86,10 @@ export default function FinanceService() {
             scrollYProgress={scrollYProgress}
             startScrollY={0.37}
             endScrollY={0.56}
-            className="mt-[122px] flex-1"
+            className="mt-[50px] w-[240px] desktop:mt-[122px] desktop:w-auto desktop:flex-1"
           >
             <img
-              className="mb-[35px]"
-              width={336}
+              className="mb-[30px] w-[240px] desktop:mb-[35px] desktop:w-[336px]"
               src="/images/finance-02-02.jpg"
               alt="finance-02-02"
             />
@@ -108,7 +110,7 @@ export default function FinanceService() {
             endScrollY={0.84}
           >
             <img
-              className="mb-[50px]"
+              className="mb-[30px] desktop:mb-[50px]"
               width={1048}
               src="/images/finance-03.jpg"
               alt="finance-03"
@@ -118,13 +120,13 @@ export default function FinanceService() {
             scrollYProgress={scrollYProgress}
             startScrollY={0.9}
             endScrollY={0.95}
-            className="flex"
+            className="flex flex-col desktop:flex-row"
           >
-            <div className="flex-1">
-              <h2 className="mb-[5px] text-[40px] leading-[1.3] font-[700] text-[#191f28]">
+            <div className="mb-[30px] flex-1 desktop:mb-0">
+              <h2 className="mb-[5px] text-[26px] leading-[1.3] font-[700] text-[#191f28] desktop:text-[40px]">
                 내 부동산 · 자동차
               </h2>
-              <h3 className="text-[40px] leading-[1.3] font-[700] text-[#b0b8c1]">
+              <h3 className="text-[26px] leading-[1.3] font-[700] text-[#b0b8c1] desktop:text-[40px]">
                 정기적으로 관리해보세요
               </h3>
             </div>
