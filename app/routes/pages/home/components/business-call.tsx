@@ -1,6 +1,9 @@
 import { Button } from '~/components/ui/button';
+import useMediaQuery, { MediaQuery } from '~/hooks/use-media-query';
 
 export default function BusinessCall() {
+  const isMobile = useMediaQuery(MediaQuery.MOBILE);
+
   return (
     <section className="h-[306px] bg-[#f5f6f8] py-[33px]">
       <div className="m-auto flex w-[800px] justify-center">
@@ -16,14 +19,16 @@ export default function BusinessCall() {
             </p>
             <Button variant="secondary">접수하기</Button>
           </div>
-          <div>
-            <img
-              src="/images/business-call.png"
-              alt="business-call"
-              width={240}
-              height={240}
-            />
-          </div>
+          {!isMobile && (
+            <div>
+              <img
+                src="/images/business-call.png"
+                alt="business-call"
+                width={240}
+                height={240}
+              />
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -1,58 +1,74 @@
 import InDropUp from '~/components/animation/in-drop-up';
+import useMediaQuery, { MediaQuery } from '~/hooks/use-media-query';
 
 export default function PaymentService() {
+  const isMobile = useMediaQuery(MediaQuery.MOBILE);
+
   return (
-    <section className="h-[1687px] bg-[#f9fafb]">
-      <div className="container flex pt-[250px] pb-[165px]">
+    <section className="h-auto bg-[#f9fafb] desktop:h-[1687px]">
+      <div className="container flex flex-col py-[100px] desktop:flex-row desktop:pt-[250px] desktop:pb-[165px]">
         <div className="flex-1">
           <InDropUp className="relative">
-            <h1 className="mb-[20px] text-[28px] leading-[1.3] font-[700] text-[#3182f6]">
+            <h1 className="mb-[10px] text-[18px] leading-[1.3] font-[700] text-[#3182f6] desktop:mb-[30px] desktop:text-[28px]">
               결제
             </h1>
-            <h2 className="mb-[100px] text-[50px] leading-[1.4] font-[700] text-[#191f28]">
+            <h2 className="mb-[60px] text-[28px] leading-[1.4] font-[700] text-[#35445a] desktop:mb-[80px] desktop:text-[50px]">
               결제는 간편하게,
               <br />
               할인과 적립은 두둑히
             </h2>
-            <p className="absolute top-[265px] text-[23px] leading-[1.5] font-[600] text-[#4e5968]">
-              온라인과 오프라인 모두
-              <br />
-              국내는 물론, 해외에서도
-              <br />
-              토스로 간편하게 결제해요.
-            </p>
+            {!isMobile && (
+              <p className="absolute top-[265px] text-[23px] leading-[1.5] font-[600] text-[#4e5968]">
+                온라인과 오프라인 모두
+                <br />
+                국내는 물론, 해외에서도
+                <br />
+                토스로 간편하게 결제해요.
+              </p>
+            )}
           </InDropUp>
           <InDropUp>
             <div className="relative">
               <img
-                className="absolute top-[90px] left-[-2px] w-[300px] rounded-[40px]"
+                className="absolute top-[60px] left-[80px] z-10 w-[215px] rounded-[30px] desktop:top-[90px] desktop:left-[-2px] desktop:w-[300px]"
                 src="/images/payment-01.png"
                 alt="payment-01"
               />
               <img
-                className="relative left-[-115px]"
+                className="relative w-[375px] desktop:left-[-115px] desktop:w-auto"
                 src="/images/iPhone15_Clay_Shadow_03.png"
                 alt="iPhone15_Clay_Shadow_03"
               />
             </div>
           </InDropUp>
+          {isMobile && (
+            <InDropUp>
+              <p className="text-[17px] leading-[1.5] font-[600] text-[#4e5968]">
+                온라인과 오프라인 모두
+                <br />
+                국내는 물론, 해외에서도
+                <br />
+                토스로 간편하게 결제해요.
+              </p>
+            </InDropUp>
+          )}
         </div>
         <div className="flex-1">
           <InDropUp>
-            <div className="relative">
+            <div className="relative flex justify-center">
               <img
-                className="absolute top-[90px] left-[162px] w-[300px] rounded-[40px]"
+                className="absolute top-[60px] left-[150px] z-10 w-[215px] rounded-[30px] desktop:top-[90px] desktop:left-[162px] desktop:w-[300px]"
                 src="/images/payment-02.png"
                 alt="payment-02"
               />
               <img
-                className="relative left-[50px]"
+                className="relative w-[375px] desktop:left-[50px] desktop:w-auto"
                 src="/images/iPhone15_Clay_Shadow_03.png"
                 alt="iPhone15_Clay_Shadow_03"
               />
             </div>
           </InDropUp>
-          <InDropUp className="relative text-[23px] leading-[1.5] font-[600] text-[#4e5968]">
+          <InDropUp className="relative text-[17px] leading-[1.5] font-[600] text-[#4e5968] desktop:text-[23px]">
             <p className="absolute top-[50px] left-[150px]">
               결제할 땐, 혜택이 빠질 수 없죠.
               <br />
