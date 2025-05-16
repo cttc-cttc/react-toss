@@ -14,13 +14,13 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 };
 
 export const handle = {
-  breadcrumb: () => <BreadcrumbItem>관리자 홈</BreadcrumbItem>,
+  breadcrumb: () => <BreadcrumbItem>공지사항 관리</BreadcrumbItem>,
 };
 
-export default function Admin() {
+export default function AdminNotice() {
   return (
     <div>
-      <div>관리자 페이지</div>
+      <div>공지사항 페이지</div>
     </div>
   );
 }
