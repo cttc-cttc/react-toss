@@ -48,7 +48,7 @@ export default function Business() {
           </p>
         </InDropUp>
         <InDropUp className="flex flex-col px-[24px] desktop:flex-row desktop:justify-center desktop:px-[48px]">
-          <div className="">
+          <div className="desktop:mt-[40px] desktop:ml-[20px]">
             <Service
               title="토스결제"
               description={
