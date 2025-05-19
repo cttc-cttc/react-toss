@@ -101,3 +101,9 @@
 .hero-shadow {
   background: linear-gradient(180deg, white 0%, white 59px, rgba(255, 255, 255, 0) 100%);
 }
+
+.sidebar-active {
+  & > button {
+    @apply bg-sidebar-accent text-sidebar-accent-foreground;
+  }
+}

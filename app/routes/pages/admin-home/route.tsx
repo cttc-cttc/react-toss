@@ -1,40 +1,26 @@
 import { type LoaderFunctionArgs, redirect } from 'react-router';
 
-import prisma from '~/.server/lib/prisma';
 import { getAdminAuthSession } from '~/.server/services/session.service';
 import { BreadcrumbItem } from '~/components/ui/breadcrumb';
-
-import type { Route } from '../admin-notice/+types/route';
-import { NoticeTable } from './components/notice-table';
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   // TODO: 로그인 된 경우 페이지가 나와야 하고 로그인 안된 경우는 로그인 페이지로 이동해야 함
   const adminAuthSession = await getAdminAuthSession(request);
   const adminAuth = adminAuthSession.getAdminAuth();
-  if (!adminAuth) {
-    return redirect('/admin/login');
+  if (adminAuth) {
+    return {};
   }
-
-  const notices = await prisma.notice.findMany({
-    orderBy: {
-      createdAt: 'desc',
-    },
-  });
-
-  return {
-    notices,
-  };
+  return redirect('/admin/login');
 };
 
 export const handle = {
-  breadcrumb: () => <BreadcrumbItem>공지사항 관리</BreadcrumbItem>,
+  breadcrumb: () => <BreadcrumbItem>관리자 홈</BreadcrumbItem>,
 };
 
-export default function AdminNotice({ loaderData }: Route.ComponentProps) {
-  const { notices } = loaderData;
+export default function AdminHome() {
   return (
     <div>
-      <NoticeTable notices={notices} />
+      <div>관리자 페이지</div>
     </div>
   );
 }
