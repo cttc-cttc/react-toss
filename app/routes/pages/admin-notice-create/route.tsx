@@ -1,3 +1,5 @@
+import { Label } from '@radix-ui/react-label';
+import { Separator } from '@radix-ui/react-separator';
 import { useState } from 'react';
 import {
   type ActionFunctionArgs,
@@ -11,27 +13,7 @@ import prisma from '~/.server/lib/prisma';
 import { BreadcrumbItem } from '~/components/ui/breadcrumb';
 import { Button } from '~/components/ui/button';
 import { Input } from '~/components/ui/input';
-import { Label } from '~/components/ui/label';
-import { Separator } from '~/components/ui/separator';
 import { Textarea } from '~/components/ui/textarea';
-
-import type { Route } from '../admin-notice-update/+types/route';
-
-export const loader = async ({ params }) => {
-  const { id } = params;
-  const notice = await prisma.notice.findUnique({
-    where: {
-      id: parseInt(id),
-    },
-  });
-  if (!notice) {
-    throw new Error('Notice not found');
-  }
-
-  return {
-    notice,
-  };
-};
 
 class InvalidException extends Error {
   status: number;
@@ -49,9 +31,8 @@ class InvalidException extends Error {
   }
 }
 
-export const action = async ({ request, params }: ActionFunctionArgs) => {
+export const action = async ({ request }: ActionFunctionArgs) => {
   try {
-    const { id } = params;
     const formData = await request.formData();
     const payload = Object.fromEntries(formData);
     // console.log('payload', payload);
@@ -62,11 +43,7 @@ export const action = async ({ request, params }: ActionFunctionArgs) => {
       throw new InvalidException('내용을 입력해주세요.', 'content');
     }
 
-    // const notice = await prisma.notice.update({
-    await prisma.notice.update({
-      where: {
-        id: parseInt(id),
-      },
+    const notice = await prisma.notice.create({
       data: {
         title: String(payload.title),
         content: String(payload.content),
@@ -74,7 +51,7 @@ export const action = async ({ request, params }: ActionFunctionArgs) => {
     });
     // console.log('notice', notice);
 
-    return redirect(`/admin/notice/${id}`);
+    return redirect(`/admin/notice/${notice.id}`);
   } catch (error) {
     console.error(error);
     if (error instanceof InvalidException) {
@@ -85,19 +62,18 @@ export const action = async ({ request, params }: ActionFunctionArgs) => {
 };
 
 export const handle = {
-  breadcrumb: () => <BreadcrumbItem>공지사항 관리 / 상세 / 수정</BreadcrumbItem>,
+  breadcrumb: () => <BreadcrumbItem>공지사항 관리 / 등록</BreadcrumbItem>,
 };
 
-export default function AdminNoticeUpdate({ loaderData }: Route.ComponentProps) {
-  const { notice } = loaderData;
-  const [title, setTitle] = useState(() => notice.title);
-  const [content, setContent] = useState(() => notice.content);
+export default function AdminNoticeCreate() {
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
   const navigate = useNavigate();
   const data = useActionData();
 
   return (
     <div>
-      <h1 className="leading-1.4 pb-4 text-2xl font-bold">공지사항 수정</h1>
+      <h1 className="leading-1.4 pb-4 text-2xl font-bold">공지사항 등록</h1>
       <Separator />
       <Form className="space-y-8 py-8" method="post">
         <div>
@@ -107,6 +83,7 @@ export default function AdminNoticeUpdate({ loaderData }: Route.ComponentProps) 
           <Input
             id="title"
             name="title"
+            placeholder="공지사항 제목을 입력하세요."
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
@@ -120,6 +97,7 @@ export default function AdminNoticeUpdate({ loaderData }: Route.ComponentProps) 
             id="content"
             name="content"
             className="resize-none"
+            placeholder="공지사항 내용을 입력하세요."
             value={content}
             onChange={(e) => setContent(e.target.value)}
           />
@@ -131,7 +109,7 @@ export default function AdminNoticeUpdate({ loaderData }: Route.ComponentProps) 
           <Button variant="secondary" onClick={() => navigate(-1)}>
             취소
           </Button>
-          <Button type="submit">수정</Button>
+          <Button type="submit">등록</Button>
         </div>
       </Form>
     </div>

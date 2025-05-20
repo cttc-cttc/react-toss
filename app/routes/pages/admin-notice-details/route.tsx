@@ -49,7 +49,7 @@ export default function AdminNoticeDetails({ loaderData }: Route.ComponentProps)
         ))}
       </div>
       <div className="mt-8 flex justify-between">
-        <Button onClick={() => navigate(-1)} variant="secondary">
+        <Button onClick={() => navigate('/admin/notice')} variant="secondary">
           목록 보기
         </Button>
         <Link to={`/admin/notice/${notice.id}/edit`}>
